@@ -18,3 +18,16 @@
     <link rel="stylesheet" href="admin/assets/css/style.css">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="admin/assets/images/favicon.png" />
+    <style type="text/css">
+        .title
+        {
+            color: white; 
+            padding-top: 25px; 
+            font-size: 25px; 
+        }
+        label
+        {
+            display: inline-block;
+            width: 10%;
+        }
+    </style>

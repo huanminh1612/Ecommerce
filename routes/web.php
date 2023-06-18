@@ -38,3 +38,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/product', [Admincontroller::class, 'product']);
 
 Route::post('/uploadproduct', [Admincontroller::class, 'uploadproduct']);
+
+Route::get('/showproduct', [Admincontroller::class, 'showproduct']);
+
+Route::get('/deleteproduct/{id}', [Admincontroller::class, 'deleteproduct']);
+
+Route::get('/updateview/{id}', [Admincontroller::class, 'updateview']);
+
+Route::get('/updateproduct/{id}', [Admincontroller::class, 'updateproduct']);

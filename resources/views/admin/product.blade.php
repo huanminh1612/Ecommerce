@@ -4,19 +4,7 @@
 <head>
     @include('admin.css')
 
-    <style type="text/css">
-        .title
-        {
-            color: white; 
-            padding-top: 25px; 
-            font-size: 25px; 
-        }
-        label
-        {
-            display: inline-block;
-            width: 10%;
-        }
-    </style>
+    
 </head>
 
 <body>
