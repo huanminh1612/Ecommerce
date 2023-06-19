@@ -10,57 +10,72 @@ use App\Models\User;
 
 use App\Models\Product;
 
+use App\Models\Cart;
+
 class HomeController extends Controller
 {
     public function redirect()
     {
-        $usertype = Auth :: user()-> usertype;
+        $usertype = Auth::user()->usertype;
 
-        if ($usertype == '1')
-        {
+        if ($usertype == '1') {
             return view('admin.home');
-        }
-        else
-        {
+        } else {
             $data = product::paginate(6);
 
-            return view('user.home', compact('data'));
+            $user=auth()->user();
+
+            $count = cart::where('phone', $user->phone)->count();
+
+            return view('user.home', compact('data', 'count'));
         }
     }
 
     public function index()
     {
-        if(Auth::id())
-        {
+        if (Auth::id()) {
             return redirect(' redirect');
-        }
-        else 
-        {
+        } else {
             $data = product::paginate(6);
 
             return view('user.home', compact('data'));
         }
     }
 
-    
+
     public function search(Request $request)
     {
         $search = $request->search;
 
-        $data = product::where('title', 'Like', '%'.$search.'%')->get();
+        $data = product::where('title', 'Like', '%' . $search . '%')->get();
 
         return view('user.home', compact('data'));
     }
 
     public function addcart(Request $request, $id)
     {
-        if(Auth::id())
-        {
-            return redirect()->back();
-        }
-        else
-        {
+        if (Auth::id()) {
+            $user = auth()->user();
+
+            $product = product::find($id);
+
+            $cart = new cart;
+
+            $cart->name = $user->name;
+            $cart->phone = $user->phone;
+            $cart->address = $user->address;
+            $cart->Product_title = $product->title;
+            $cart->price=$product->price;
+            $cart->quantity=$request->quantity;
+            $cart->save();
+            
+            return redirect()->back()->with('message', 'Product Added Successfully');
+        } else {
             return redirect('login');
         }
     }
+     public function showcart()
+     {
+        return view('user.showcart');
+     }
 }
