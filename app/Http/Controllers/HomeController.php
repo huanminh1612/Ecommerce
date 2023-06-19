@@ -76,6 +76,9 @@ class HomeController extends Controller
     }
      public function showcart()
      {
-        return view('user.showcart');
+        $user=auth()->user();
+
+            $count = cart::where('phone', $user->phone)->count();
+        return view('user.showcart', compact('count'));
      }
 }
