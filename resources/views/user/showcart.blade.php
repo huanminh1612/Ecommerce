@@ -9,8 +9,8 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" 
-        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
     <title>Sixteen Clothing Template</title>
 
     <!-- Bootstrap core CSS -->
@@ -78,7 +78,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                                 @auth
 
                             <li class="nav-item">
-                                
+
                                 <a class="nav-link" href="{{ url('showcart') }}">
                                     <i class="fas fa-shopping-cart"></i>
                                     Cart[{{ $count }}]
@@ -121,9 +121,46 @@ https://templatemo.com/tm-546-sixteen-clothing
 
     <!-- Page Content -->
     <!-- Banner Starts Here -->
-    
+    <div style="padding:100px" align="center">
+        <table>
+            <tr style="background-color: grey">
+                <td style="padding:10px; font-size: 15px;">Product Name</td>
+                <td style="padding:10px; font-size: 15px;">Quantity</td>
+                <td style="padding:10px; font-size: 15px;">Price</td>
+                <td style="padding:10px; font-size: 15px;">Action</td>
+            </tr>
 
 
+            <form action="{{ url('order') }}" method="POST">
+
+                @csrf
+                @foreach ($cart as $carts)
+                    <tr style="background-color: black">
+                        <td style="padding:10px; color:white">
+                            <input type="text" name="productname[]" value="{{ $carts->product_title }}"
+                                hidden="" />
+                            {{ $carts->product_title }}
+                        </td>
+                        <td style="padding:10px; color:white">
+                            <input type="text" name="quantity[]" value="{{ $carts->quantity }}" hidden="" />
+                            {{ $carts->quantity }}
+                        </td>
+                        <td style="padding:10px; color:white">
+                            <input type="text" name="price[]" value="{{ $carts->price }}" hidden="" />
+                            {{ $carts->price }}
+                        </td>
+                        <td style="padding:10px; color:white">
+                            <a class="btn btn-danger" href="{{ url('delete', $carts->id) }}">Delete</a>
+                        </td>
+                    </tr>
+                @endforeach
+
+        </table>
+
+        <button class="btn btn-success">Comfirm Order</button>
+        
+        </form>
+    </div>
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

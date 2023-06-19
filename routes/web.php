@@ -30,7 +30,10 @@ Route::middleware([
 
 Route::get('/redirect', [Homecontroller::class, 'redirect']);
 
-Route::get('/', [Homecontroller::class, 'index']);
+Route::get('/index', [Homecontroller::class, 'index']);
+
+Route::redirect('/', '/index');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -52,3 +55,7 @@ Route::get('/search', [HomeController::class, 'search']);
 Route::post('/addcart/{id}', [HomeController::class, 'addcart']);
 
 Route::get('/showcart', [HomeController::class, 'showcart']);
+
+Route::get('/delete/{id}', [HomeController::class, 'deletecart']);
+
+Route::post('/order', [HomeController::class, 'confirmorder']);

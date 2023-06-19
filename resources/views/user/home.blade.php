@@ -47,7 +47,7 @@ https://templatemo.com/tm-546-sixteen-clothing
     <header class="">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="/resources/views/user/home.blade.php">
+                <a class="navbar-brand" href="{{ url('index') }}">
                     <h2>Sixteen <em>Clothing</em></h2>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
@@ -57,7 +57,7 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="/resources/views/user/home.blade.php">Home
+                            <a class="nav-link" href="{{ url('index') }}">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
@@ -79,7 +79,7 @@ https://templatemo.com/tm-546-sixteen-clothing
 
                             <li class="nav-item">
                                 
-                                <a class="nav-link" href="{{ url('showcard') }}">
+                                <a class="nav-link" href="{{ url('showcart') }}">
                                     <i class="fas fa-shopping-cart"></i>
                                     Cart[{{ $count }}]
 
