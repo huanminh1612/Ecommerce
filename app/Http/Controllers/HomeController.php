@@ -94,9 +94,9 @@ class HomeController extends Controller
     {
         $user = auth()->user();
 
-        $name = $user()->name();
-        $phone = $user()->phone();
-        $address = $user()->address();
+        $name = $user->name;
+        $phone = $user->phone;
+        $address = $user->address;
 
         if ($request->productname == null) {
             return redirect()->back()->with('message', 'First add something in CART');
