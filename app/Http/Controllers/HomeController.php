@@ -8,6 +8,7 @@ use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Db;
 
 class HomeController extends Controller
 {
@@ -113,8 +114,11 @@ class HomeController extends Controller
             $order->phone = $phone;
             $order->address = $address;
 
+            $order->status='not delivered';
+
             $order->save();
         }
-        return redirect()->back();
+        DB::table('carts')->where('phone', $phone)->delete();
+        return redirect()->back()->with('message', 'Product Ordered Successfully');
     }
 }
