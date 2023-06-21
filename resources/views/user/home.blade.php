@@ -48,7 +48,7 @@ https://templatemo.com/tm-546-sixteen-clothing
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('index') }}">
-                    <h2>Sixteen <em>Clothing</em></h2>
+                    <h2>Henrik <em>Clothing</em></h2>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -152,7 +152,7 @@ https://templatemo.com/tm-546-sixteen-clothing
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-heading">
-                        <h2>About Sixteen Clothing</h2>
+                        <h2>About Henrik Clothing</h2>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -210,7 +210,7 @@ https://templatemo.com/tm-546-sixteen-clothing
             <div class="row">
                 <div class="col-md-12">
                     <div class="inner-content">
-                        <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
+                        <p>Copyright &copy; 2023 Henrik Clothing Co., Ltd.
 
                             - Design: <a rel="nofollow noopener" href="https://templatemo.com"
                                 target="_blank">TemplateMo</a></p>

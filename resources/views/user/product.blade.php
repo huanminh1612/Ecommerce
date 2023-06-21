@@ -45,13 +45,13 @@
                 </div>
             @endforeach
 
-            @if (method_exists($data, 'link'))
+            {{-- @if (method_exists($data, 'link')) --}}
                 <div class="d-flex justify-content-center">
 
                     {!! $data->links() !!}
 
                 </div>
-            @endif
+            {{-- @endif --}}
 
         </div>
     </div>
